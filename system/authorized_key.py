@@ -288,9 +288,8 @@ def keyfile(module, user, write=False, path=None, manage_dir=True):
         basedir = os.path.dirname(keysfile)
         if not os.path.exists(basedir):
             os.makedirs(basedir)
-        try:
-            f = open(keysfile, "w") #touches file so we can set ownership and perms
-            f.close()
+        f = open(keysfile, "w") #touches file so we can set ownership and perms
+        f.close()
         if module.selinux_enabled():
             module.set_default_selinux_context(keysfile, False)
 
