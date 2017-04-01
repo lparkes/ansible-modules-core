@@ -290,7 +290,6 @@ def keyfile(module, user, write=False, path=None, manage_dir=True):
             os.makedirs(basedir)
         try:
             f = open(keysfile, "w") #touches file so we can set ownership and perms
-        finally:
             f.close()
         if module.selinux_enabled():
             module.set_default_selinux_context(keysfile, False)
